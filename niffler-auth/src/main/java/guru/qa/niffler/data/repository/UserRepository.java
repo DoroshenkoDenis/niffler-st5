@@ -22,7 +22,7 @@ public interface UserRepository extends JpaRepository<UserEntity, UUID> {
     Optional<UserEntity> findByUsername(@Nonnull String username);
 
     //****************************** Fake-реализация ********************************************//
-    final class Fake implements UserRepository {
+    final class FakeUserRepository implements UserRepository {
 
         @Nonnull
         @Override
