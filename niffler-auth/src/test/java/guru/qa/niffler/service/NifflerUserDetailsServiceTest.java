@@ -15,7 +15,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * В этом тесте мы создаем экземпляр UserRepository.Fake в методе setup() и передаем его в конструктор NifflerUserDetailsService.
+ * В этом тесте мы создаем экземпляр UserRepository.FakeUserRepository в методе setup() и передаем его в конструктор NifflerUserDetailsService.
  * Fake реализация возвращает предопределенный UserEntity для пользователя с именем "correct" и выбрасывает UsernameNotFoundException для всех остальных имен пользователей.
  * Тесты loadUserByUsername() и loadUserByUsernameNegative() остались практически без изменений, за исключением того, что мы больше не используем Mockito для настройки поведения репозитория.
  * Преимущества использования Fake реализации:
@@ -33,7 +33,7 @@ class NifflerUserDetailsServiceTest {
 
     @BeforeEach
     void setup() {
-        userRepository = new UserRepository.Fake();
+        userRepository = new UserRepository.FakeUserRepository();
         nifflerUserDetailsService = new NifflerUserDetailsService(userRepository);
     }
 
